@@ -351,7 +351,8 @@
 
 <!-- MELBOURNE TOUR PAGE -->
 <div id="page-melbourne-tour" class="page">
-<div class="main-wrap"><div class="card">
+<div class="card" style="position:relative;">
+  <button class="modal-close" onclick="showPage('packages')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(14,14,14,0.35);z-index:10;">✕</button>
   <div class="card-title">멜번 시티 투어 코스 안내</div>
 
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;padding:16px 20px;background:var(--paper);border-radius:10px;border:1px solid var(--mist);">
@@ -468,13 +469,12 @@
 
   <div style="margin-top:16px;padding:12px 16px;background:var(--paper);border-radius:10px;border:1px solid var(--mist);display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:0.84rem;color:rgba(14,14,14,0.55);">
     <span>📩 예약 문의</span>
-    <a href="/cdn-cgi/l/email-protection#d0baa5a3a4b9bebbb1beb7e0e7e990b7bdb1b9bcfeb3bfbd" style="color:var(--sky);font-weight:500;text-decoration:none;">✉️ <span class="__cf_email__" data-cfemail="345e4147405d5a5f555a5304030d745359555d581a575b59">[email&#160;protected]</span></a>
+    <a href="mailto:justinkang079@gmail.com" style="color:var(--sky);font-weight:500;text-decoration:none;">✉️ justinkang079@gmail.com</a>
     <span style="color:var(--mist);">|</span>
     <span style="color:var(--ink);font-weight:500;">💬 카카오톡 <strong style="color:#3A1D1D;">yg7980</strong></span>
   </div>
 
   <div style="display:flex;gap:12px;margin-top:20px;">
-    <button class="btn-secondary" onclick="showPage('packages')">← 상품 목록</button>
     <button class="btn-primary" style="margin-top:0;" onclick="submitMelbourne()">예약 신청하기 →</button>
   </div>
 </div></div>
