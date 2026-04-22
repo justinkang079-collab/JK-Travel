@@ -36,6 +36,8 @@
   .hero-line { width:40px; height:1px; background:var(--gold); margin:20px auto; }
 
   .page { display:none; } .page.active { display:block; }
+  .melb-overlay { display:none; }
+  .melb-overlay.active { display:flex; position:fixed; inset:0; z-index:300; background:rgba(0,0,0,0.55); backdrop-filter:blur(4px); align-items:flex-start; justify-content:center; overflow-y:auto; padding:40px 16px; }
   .main-wrap { max-width:900px; margin:0 auto; padding:0 24px 80px; }
   .card { background:var(--white); border-radius:16px; padding:44px 48px; margin-top:-60px; position:relative; box-shadow:0 8px 40px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04); border:1px solid rgba(200,151,58,0.1); animation:fadeUp 0.5s ease both; }
   .card-title { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:400; color:var(--sky); margin-bottom:32px; display:flex; align-items:center; gap:12px; }
@@ -350,7 +352,7 @@
 </div>
 
 <!-- MELBOURNE TOUR PAGE -->
-<div id="page-melbourne-tour" class="page" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(0,0,0,0.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;overflow-y:auto;">
+<div id="page-melbourne-tour" class="page melb-overlay">
 <div class="main-wrap" style="max-width:520px;margin:40px auto;"><div class="card" style="position:relative;">
   <button class="modal-close" onclick="showPage('packages')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(14,14,14,0.35);z-index:10;">✕</button>
   <div class="card-title">멜번 시티 투어 코스 안내</div>
