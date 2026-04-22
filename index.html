@@ -931,7 +931,7 @@
       const lugFee  = getLugFee(largeLug);
       const nightFee = isNight ? 20 : 0;
       // 유류 할증료: 10km당 A$10
-      const fuelFee = Math.ceil(distKm / 10) * 10;
+      const fuelFee = Math.round(distKm * 0.5 * 100) / 100;
       const total   = zone.base + fuelFee + paxFee + lugFee + nightFee;
 
       // 구간 배지
@@ -945,8 +945,8 @@
 
       // 유류 할증료
       document.getElementById('pr-fuel-row').style.opacity = '1';
-      document.getElementById('pr-fuel-label').textContent = `유류 할증료 (${distKm.toFixed(1)}km × A$10/10km)`;
-      document.getElementById('pr-fuel').textContent = `+A$${fuelFee}`;
+      document.getElementById('pr-fuel-label').textContent = `유류 할증료 (${distKm.toFixed(1)}km × A$0.5/km)`
+      document.getElementById('pr-fuel').textContent = `+A$${fuelFee.toFixed(2)}`
 
       // 인원 추가요금
       const paxRow = document.getElementById('pr-pax-fee-row');
