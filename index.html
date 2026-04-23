@@ -149,8 +149,60 @@
   .status-pending { background:rgba(200,151,58,0.15); color:#8a6520; }
   .status-confirmed { background:rgba(39,103,74,0.12); color:var(--success); }
 
-  footer { background:linear-gradient(135deg,#1d6fa4,#0e9bd4); color:rgba(255,255,255,0.75); text-align:center; padding:28px; font-size:0.78rem; letter-spacing:0.04em; margin-top:60px; }
+  footer { background:linear-gradient(135deg,#1d6fa4,#0e9bd4); color:rgba(255,255,255,0.75); text-align:center; padding:28px; font-size:0.78rem; letter-spacing:0.04em; margin-top:0; }
   footer strong { color:#ffd166; }
+
+  /* ── PAYMENT SECTION ── */
+  .payment-section { background:linear-gradient(135deg,#0d1f35 0%,#1a2d45 100%); padding:60px 24px; }
+  .payment-inner { max-width:900px; margin:0 auto; }
+  .payment-heading { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:300; color:var(--white); text-align:center; margin-bottom:8px; }
+  .payment-heading em { font-style:italic; color:var(--gold-light); }
+  .payment-sub { text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.45); margin-bottom:40px; letter-spacing:0.04em; }
+  .payment-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .payment-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:30px 28px; transition:all 0.3s; }
+  .payment-card:hover { background:rgba(255,255,255,0.08); border-color:rgba(232,160,32,0.4); transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.3); }
+  .payment-card-icon { font-size:2rem; margin-bottom:14px; }
+  .payment-card-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:400; color:var(--white); margin-bottom:6px; }
+  .payment-card-desc { font-size:0.8rem; color:rgba(255,255,255,0.45); line-height:1.6; margin-bottom:22px; }
+  .payment-btn { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:10px; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:500; text-decoration:none; cursor:pointer; border:none; transition:all 0.25s; letter-spacing:0.03em; }
+  .payment-btn-gold { background:linear-gradient(135deg,#f0900a,#e07800); color:var(--white); box-shadow:0 4px 20px rgba(240,144,10,0.35); }
+  .payment-btn-gold:hover { box-shadow:0 8px 28px rgba(240,144,10,0.5); transform:translateY(-1px); }
+  .payment-btn-kakao { background:#fee500; color:#3a1d1d; box-shadow:0 4px 20px rgba(254,229,0,0.25); }
+  .payment-btn-kakao:hover { box-shadow:0 8px 28px rgba(254,229,0,0.4); transform:translateY(-1px); }
+  .payment-divider { display:flex; align-items:center; gap:14px; margin:32px 0; }
+  .payment-divider::before,.payment-divider::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.1); }
+  .payment-divider span { font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.3); white-space:nowrap; }
+  .payment-bank { background:rgba(232,160,32,0.08); border:1px solid rgba(232,160,32,0.2); border-radius:12px; padding:20px 24px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  .payment-bank-icon { font-size:1.5rem; }
+  .payment-bank-info { flex:1; }
+  .payment-bank-label { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:5px; }
+  .payment-bank-detail { font-size:0.92rem; color:var(--white); font-weight:500; }
+  .payment-bank-sub { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-top:3px; }
+  .payment-note { text-align:center; font-size:0.75rem; color:rgba(255,255,255,0.3); margin-top:28px; line-height:1.7; }
+  @media(max-width:680px){ .payment-cards{grid-template-columns:1fr;} .payment-section{padding:44px 20px;} }
+
+  /* ── BANK MODAL ── */
+  .bank-modal-overlay { display:none; position:fixed; inset:0; z-index:400; background:rgba(0,0,0,0.6); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px; }
+  .bank-modal-overlay.open { display:flex; }
+  .bank-modal { background:var(--white); border-radius:20px; width:100%; max-width:420px; box-shadow:0 24px 80px rgba(0,0,0,0.3); animation:fadeUp 0.3s ease; overflow:hidden; position:relative; }
+  .bank-modal-header { background:linear-gradient(135deg,#0d1f35,#1a2d45); padding:24px 28px 20px; }
+  .bank-modal-title { font-family:"Cormorant Garamond",serif; font-size:1.4rem; font-weight:400; color:var(--white); margin-bottom:4px; }
+  .bank-modal-sub { font-size:0.75rem; color:rgba(255,255,255,0.4); }
+  .bank-modal-close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:1.2rem; cursor:pointer; color:rgba(255,255,255,0.4); transition:color 0.15s; }
+  .bank-modal-close:hover { color:var(--white); }
+  .bank-modal-body { padding:24px 28px; display:flex; flex-direction:column; gap:14px; }
+  .bank-block { background:var(--paper); border:1.5px solid var(--mist); border-radius:12px; padding:16px 18px; }
+  .bank-block-title { font-size:0.78rem; font-weight:600; color:var(--sky); margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+  .bank-row { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--mist); }
+  .bank-row:last-child { border-bottom:none; padding-bottom:0; }
+  .bank-row-label { font-size:0.73rem; color:rgba(14,14,14,0.42); }
+  .bank-row-value { font-size:0.88rem; font-weight:500; color:var(--ink); display:flex; align-items:center; gap:6px; }
+  .bank-copy-btn { font-size:0.65rem; padding:2px 8px; border:1px solid rgba(29,111,164,0.25); border-radius:4px; background:none; color:var(--sky); cursor:pointer; transition:all 0.15s; }
+  .bank-copy-btn:hover { background:var(--sky); color:var(--white); border-color:var(--sky); }
+  .bank-divider { display:flex; align-items:center; gap:10px; }
+  .bank-divider::before,.bank-divider::after { content:""; flex:1; height:1px; background:var(--mist); }
+  .bank-divider span { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(14,14,14,0.3); }
+  .bank-note { font-size:0.72rem; color:rgba(14,14,14,0.42); text-align:center; line-height:1.7; padding:0 0 6px; }
 
   /* ── COURSE STOPS ── */
   .course-stop { display:flex; align-items:flex-start; gap:10px; padding:6px 0; position:relative; }
@@ -823,6 +875,77 @@
     <button class="btn-primary" onclick="checkAdmin()">입장하기 →</button>
   </div>
 </div>
+
+<!-- BANK MODAL -->
+<div class="bank-modal-overlay" id="bank-modal">
+  <div class="bank-modal">
+    <div class="bank-modal-header">
+      <button class="bank-modal-close" onclick="closeBankModal()">✕</button>
+      <div class="bank-modal-title">계좌 이체 안내</div>
+      <div class="bank-modal-sub">아래 계좌로 입금 후 카카오톡으로 알려주세요</div>
+    </div>
+    <div class="bank-modal-body">
+      <div class="bank-block">
+        <div class="bank-block-title">🇰🇷 한국 계좌</div>
+        <div class="bank-row"><span class="bank-row-label">은행</span><span class="bank-row-value">하나은행</span></div>
+        <div class="bank-row"><span class="bank-row-label">계좌번호</span><span class="bank-row-value">102-910-1699-1707 <button class="bank-copy-btn" onclick="copyText('10291016991707',this)">복사</button></span></div>
+        <div class="bank-row"><span class="bank-row-label">예금주</span><span class="bank-row-value">강영주</span></div>
+      </div>
+      <div class="bank-divider"><span>호주 계좌</span></div>
+      <div class="bank-block">
+        <div class="bank-block-title">🇦🇺 Bank Transfer</div>
+        <div class="bank-row"><span class="bank-row-label">BSB</span><span class="bank-row-value">735-100 <button class="bank-copy-btn" onclick="copyText('735100',this)">복사</button></span></div>
+        <div class="bank-row"><span class="bank-row-label">Account</span><span class="bank-row-value">513476 <button class="bank-copy-btn" onclick="copyText('513476',this)">복사</button></span></div>
+        <div class="bank-row"><span class="bank-row-label">Name</span><span class="bank-row-value">YOUNGJU KANG</span></div>
+      </div>
+      <div class="bank-block">
+        <div class="bank-block-title">📱 PayID</div>
+        <div class="bank-row"><span class="bank-row-label">PayID</span><span class="bank-row-value">+61 430 346 279 <button class="bank-copy-btn" onclick="copyText('+61430346279',this)">복사</button></span></div>
+        <div class="bank-row"><span class="bank-row-label">Name</span><span class="bank-row-value">YOUNGJU KANG</span></div>
+      </div>
+      <p class="bank-note">입금 완료 후 카카오톡 <strong>yg7980</strong> 으로<br>성함과 입금 금액을 보내주세요 💬</p>
+    </div>
+  </div>
+</div>
+<!-- PAYMENT SECTION -->
+<section class="payment-section">
+  <div class="payment-inner">
+    <div class="payment-heading">결제 <em>안내</em></div>
+    <p class="payment-sub">공항 픽업 및 여행 상품 결제는 아래 방법으로 진행해 주세요</p>
+
+    <div class="payment-cards">
+      <div class="payment-card">
+        <div class="payment-card-icon">✈️</div>
+        <div class="payment-card-title">공항 픽업 결제</div>
+        <div class="payment-card-desc">멜번 공항 픽업 서비스 요금을 온라인으로 간편하게 결제하세요. 예약 완료 후 링크로 결제해 주시면 됩니다.</div>
+        <button class="payment-btn payment-btn-gold" onclick="openBankModal()">💳 공항 픽업 결제하기 →</button>
+      </div>
+      <div class="payment-card">
+        <div class="payment-card-icon">🗺️</div>
+        <div class="payment-card-title">여행 상품 결제</div>
+        <div class="payment-card-desc">그레이트 오션 로드, 필립 아일랜드, 야라 밸리 등 데일리 투어 상품 결제를 진행해 주세요.</div>
+        <button class="payment-btn payment-btn-gold" onclick="openBankModal()">💳 여행 상품 결제하기 →</button>
+      </div>
+    </div>
+
+    <div class="payment-divider"><span>또는 카카오톡으로 문의 후 결제</span></div>
+
+    <div class="payment-bank">
+      <div class="payment-bank-icon">💬</div>
+      <div class="payment-bank-info">
+        <div class="payment-bank-label">카카오톡 문의 &amp; 결제</div>
+        <div class="payment-bank-detail">카카오톡 ID: yg7980</div>
+        <div class="payment-bank-sub">예약 문의 후 결제 링크를 카카오톡으로 전달해 드립니다</div>
+      </div>
+      <a class="payment-btn payment-btn-kakao" href="https://open.kakao.com/me/jkts" target="_blank" rel="noopener">카톡 문의 →</a>
+    </div>
+
+    <p class="payment-note">
+      결제 완료 후 예약 확인 메시지를 카카오톡 또는 이메일로 보내드립니다<br>
+      문의: 📞 +61 430 346 279 &nbsp;|&nbsp; ✉️ justinkang079@gmail.com
+    </p>
+  </div>
+</section>
 
 <footer><strong>JK Service</strong> &nbsp;ABN 54140181632<br>📞 +61430346279 &nbsp;|&nbsp; ✉️ <a href="mailto:justinkang079@gmail.com" style="color:rgba(255,255,255,0.75);text-decoration:none;">justinkang079@gmail.com</a> &nbsp;|&nbsp; 💬 카카오톡 yg7980</footer>
 
@@ -1512,6 +1635,20 @@
   window.toggleWine=toggleWine; window.submitYarra=submitYarra;
   window.toggleLang=toggleLang;
   window.openAdminModal=openAdminModal; window.closeAdminModal=closeAdminModal;
+
+  function openBankModal() { document.getElementById("bank-modal").classList.add("open"); }
+  function closeBankModal() { document.getElementById("bank-modal").classList.remove("open"); }
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      var orig = btn.textContent; btn.textContent = "✓ 복사됨";
+      btn.style.background = "var(--success)"; btn.style.color = "#fff"; btn.style.borderColor = "var(--success)";
+      setTimeout(() => { btn.textContent = orig; btn.style.background = ""; btn.style.color = ""; btn.style.borderColor = ""; }, 1800);
+    });
+  }
+  window.openBankModal = openBankModal;
+  window.closeBankModal = closeBankModal;
+  window.copyText = copyText;
+  document.getElementById("bank-modal").addEventListener("click", function(e){ if(e.target===this) closeBankModal(); });
   window.checkAdmin=checkAdmin; window.adminLogout=adminLogout;
 
   // OVERLAY CLOSE
